@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns="http://maven.apache.org/POM/4.0.0"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+   <modelVersion>4.0.0</modelVersion>
+   <groupId>com.github.tornaia</groupId>
+   <artifactId>jshelloverlayiconapp</artifactId>
+   <version>0.1-SNAPSHOT</version>
+   <name>JShellOverlayIcon Java</name>
+
+   <parent>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-parent</artifactId>
+      <version>1.5.3.RELEASE</version>
+   </parent>
+
+   <properties>
+      <file.encoding>UTF-8</file.encoding>
+      <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+      <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+      <java.version>1.8</java.version>
+
+      <jna-platform.version>4.2.2</jna-platform.version>
+   </properties>
+
+   <build>
+      <plugins>
+         <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-compiler-plugin</artifactId>
+         </plugin>
+      </plugins>
+
+      <pluginManagement>
+         <plugins>
+            <plugin>
+               <groupId>org.apache.maven.plugins</groupId>
+               <artifactId>maven-compiler-plugin</artifactId>
+               <version>${maven-compiler-plugin.version}</version>
+               <configuration>
+                  <source>${java.version}</source>
+                  <target>${java.version}</target>
+               </configuration>
+            </plugin>
+
+            <plugin>
+               <groupId>org.springframework.boot</groupId>
+               <artifactId>spring-boot-maven-plugin</artifactId>
+               <version>1.5.3.RELEASE</version>
+            </plugin>
+         </plugins>
+      </pluginManagement>
+   </build>
+
+   <dependencies>
+      <dependency>
+         <groupId>org.springframework.boot</groupId>
+         <artifactId>spring-boot-autoconfigure</artifactId>
+      </dependency>
+
+      <dependency>
+         <groupId>org.springframework.boot</groupId>
+         <artifactId>spring-boot-starter-web</artifactId>
+      </dependency>
+
+      <dependency>
+         <groupId>net.java.dev.jna</groupId>
+         <artifactId>jna-platform</artifactId>
+         <version>${jna-platform.version}</version>
+      </dependency>
+   </dependencies>
+</project>
