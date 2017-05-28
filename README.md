@@ -1,6 +1,6 @@
 # <tt style="color:limegreen">JShellOverlayIcon</tt> - Sample code for a blog post
 
-<tt style="color:limegreen">JShellOverlayIcon</tt> is sample project - written in C# and Java - for icon overlays in Windows.
+<tt style="color:limegreen">JShellOverlayIcon</tt> is sample project - written in C# and Java - for icon overlays under Windows OS.
 
 ### Requirement
 
