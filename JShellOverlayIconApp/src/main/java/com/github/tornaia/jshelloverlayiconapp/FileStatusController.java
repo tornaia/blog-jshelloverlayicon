@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import javax.servlet.http.HttpServletResponse;
 import java.nio.file.Paths;
 
 @RequestMapping("/file-status")
@@ -21,7 +20,7 @@ public class FileStatusController {
     private FileStatusService fileStatusService;
 
     @RequestMapping(method = RequestMethod.GET)
-    public FileStatus getFileStatus(@RequestParam(value = "absolutePath") String absolutePath, HttpServletResponse httpServletResponse) {
+    public FileStatus getFileStatus(@RequestParam(value = "absolutePath") String absolutePath) {
         FileStatus fileStatus = fileStatusService.getFileStatus(Paths.get(absolutePath));
         LOG.info("FileStatusController. absolutePath: {}, fileStatus: {}", absolutePath, fileStatus);
         return fileStatus;
