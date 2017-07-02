@@ -122,11 +122,11 @@
     <Compile Include="JavaRestClient.cs" />
     <Compile Include="FileStatus.cs" />
     <Compile Include="IShellIconOverlayIdentifier.cs" />
-    <Compile Include="JShellOverlayIcon.cs">
+    <Compile Include="JShellOverlayIconHandler.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Shell32Utils.cs" />
-    <Compile Include="AbstractOverlayIcon.cs" />
+    <Compile Include="AbstractOverlayIconHandler.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
