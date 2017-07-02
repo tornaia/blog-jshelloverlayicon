@@ -8,12 +8,12 @@
     <ProjectGuid>{B941526C-BD89-4E03-910B-20BA5D5A7AFF}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>JShellOverlayIcon</RootNamespace>
-    <AssemblyName>JShellOverlayIcon</AssemblyName>
+    <RootNamespace>JShellOverlayIconHandler</RootNamespace>
+    <AssemblyName>JShellOverlayIconHandler</AssemblyName>
     <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <SignAssembly>true</SignAssembly>
-    <AssemblyOriginatorKeyFile>jshelloverlayicon.snk</AssemblyOriginatorKeyFile>
+    <AssemblyOriginatorKeyFile>jshelloverlayiconhandler.snk</AssemblyOriginatorKeyFile>
     <FileUpgradeFlags>
     </FileUpgradeFlags>
     <UpgradeBackupLocation>
@@ -130,9 +130,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="jshelloverlayicon.snk" />
-  </ItemGroup>
-  <ItemGroup>
     <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
       <Visible>False</Visible>
       <ProductName>.NET Framework 3.5 SP1</ProductName>
@@ -152,6 +149,7 @@
     <None Include="icon_unsynced.ico">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Include="jshelloverlayiconhandler.snk" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

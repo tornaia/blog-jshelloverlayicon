@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Runtime.InteropServices;
 
-namespace JShellOverlayIcon
+namespace JShellOverlayIconHandler
 {
     [ComVisible(false)]
     [ComImport]
@@ -13,16 +13,9 @@ namespace JShellOverlayIcon
         int IsMemberOf([MarshalAs(UnmanagedType.LPWStr)] string absolutePath, [MarshalAs(UnmanagedType.U4)] int attributes);
 
         [PreserveSig]
-        void GetOverlayInfo(IntPtr iconFileBuffer, int iconFileBufferSize, out int iconIndex, [MarshalAs(UnmanagedType.U4)] out ISIOI flags);
+        int GetOverlayInfo(IntPtr iconFileBuffer, int iconFileBufferSize, out int iconIndex, out uint flags);
 
         [PreserveSig]
-        void GetPriority(out int priority);
-    }
-
-    [Flags]
-    public enum ISIOI
-    {
-        ISIOI_ICONFILE = 1,
-        ISIOI_ICONINDEX = 2
+        int GetPriority(out int priority);
     }
 }

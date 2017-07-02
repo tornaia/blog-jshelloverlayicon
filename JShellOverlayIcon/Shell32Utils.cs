@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Runtime.InteropServices;
 
-namespace JShellOverlayIcon
+namespace JShellOverlayIconHandler
 {
     public class Shell32Utils
     {

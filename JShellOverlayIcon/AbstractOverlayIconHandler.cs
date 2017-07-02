@@ -5,12 +5,13 @@ using Microsoft.Win32;
 using System.IO;
 using System.Reflection;
 
-namespace JShellOverlayIcon
+namespace JShellOverlayIconHandler
 {
     [ComVisible(false)]
-    public abstract class AbstractOverlayIcon : IShellIconOverlayIdentifier
+    public abstract class AbstractOverlayIconHandler : IShellIconOverlayIdentifier
     {
         private const int HIGHEST_PRIORITY = 0;
+        private const int ISIOI_ICONFILE = 1;
 
         private const int S_OK = 0;
         private const int S_FALSE = 1;
@@ -18,7 +19,7 @@ namespace JShellOverlayIcon
         public string IconFilePath { get; set; }
 
 
-        protected AbstractOverlayIcon(string iconFileName)
+        protected AbstractOverlayIconHandler(string iconFileName)
         {
             var assemblyDirectory = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
             var iconFilePath = Path.GetFullPath(Path.Combine(assemblyDirectory, iconFileName));
@@ -54,16 +55,18 @@ namespace JShellOverlayIcon
             return IsHandled(absolutePath, attributes) ? S_OK : S_FALSE;
         }
 
-        void IShellIconOverlayIdentifier.GetOverlayInfo(IntPtr iconFileBuffer, int iconFileBufferSize, out int iconIndex, out ISIOI flags)
+        int IShellIconOverlayIdentifier.GetOverlayInfo(IntPtr iconFileBuffer, int iconFileBufferSize, out int iconIndex, out uint flags)
         {
-            flags = ISIOI.ISIOI_ICONFILE | ISIOI.ISIOI_ICONINDEX;
-            iconIndex = 0;
             WriteToIntPtr(IconFilePath, iconFileBuffer, iconFileBufferSize * 2);
+            iconIndex = 0;
+            flags = ISIOI_ICONFILE;
+            return S_OK;
         }
 
-        void IShellIconOverlayIdentifier.GetPriority(out int priority)
+        int IShellIconOverlayIdentifier.GetPriority(out int priority)
         {
             priority = HIGHEST_PRIORITY;
+            return S_OK;
         }
 
         private static void WriteToIntPtr(string value, IntPtr destination, int bufferSize)

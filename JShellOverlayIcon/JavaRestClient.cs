@@ -2,20 +2,32 @@
 using System.Text;
 using System.Net;
 using System;
+using System.Threading;
+using System.Net.NetworkInformation;
 
-namespace JShellOverlayIcon
+namespace JShellOverlayIconHandler
 {
     public class JavaRestClient
     {
+        private const int SyncClientPort = 8080;
+
         private static string SyncDirectory;
+
+        private static bool IsSyncClientRunning;
+
+        static JavaRestClient()
+        {
+            new Thread(() => CheckSyncClientPort()) { IsBackground = true }.Start();
+        }
 
         public static FileStatus GetFileStatus(string absolutePath)
         {
             string responseString;
             try {
                 var encodedAbsolutePath = Uri.EscapeDataString(absolutePath);
-                responseString = GetResponse("http://localhost:8080/file-status?absolutePath=" + encodedAbsolutePath);
-            } catch (WebException)
+                responseString = GetResponse("http://localhost:" + SyncClientPort + "/file-status?absolutePath=" + encodedAbsolutePath);
+            }
+            catch (WebException)
             {
                 return FileStatus.COMMUNICATION_ERROR;
             }
@@ -34,7 +46,8 @@ namespace JShellOverlayIcon
 
         private static string GetResponse(string url)
         {
-           var request = (HttpWebRequest)WebRequest.Create(url);
+            var request = (HttpWebRequest)WebRequest.Create(url);
+            request.Timeout = 2000;
 
             using (var response = (HttpWebResponse)request.GetResponse())
             {
@@ -54,6 +67,27 @@ namespace JShellOverlayIcon
                         return reader.ReadToEnd();
                     }
                 }
+            }
+        }
+
+        private static void CheckSyncClientPort()
+        {
+            while (true)
+            {
+                Thread.Sleep(2000);
+
+                var activeTcpListeners = IPGlobalProperties.GetIPGlobalProperties().GetActiveTcpListeners();
+                foreach (var activeTcpListener in activeTcpListeners)
+                {
+                    bool isPortListening = activeTcpListener.Port == SyncClientPort;
+                    if (isPortListening)
+                    {
+                        IsSyncClientRunning = true;
+                        continue;
+                    }
+                }
+
+                IsSyncClientRunning = false;
             }
         }
     }
