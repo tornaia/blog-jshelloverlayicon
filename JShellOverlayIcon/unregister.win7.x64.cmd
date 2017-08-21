@@ -4,5 +4,5 @@ echo Unregister for Win7 x64
 echo Kill all explorer.exe instances
 taskkill /F /IM explorer.exe
 echo Restart explorer.exe
-explorer.exe
+%WINDIR%\explorer.exe
 echo Done
