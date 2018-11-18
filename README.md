@@ -8,4 +8,4 @@ It is strongly suggested to open the projects with Visual Studio Community Editi
 
 ##### More to read
 
-https://andrastornai.com/tag/shell-overlay-icon/
+* https://andrastornai.com/tag/shell-overlay-icon/
