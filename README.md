@@ -1,11 +1,11 @@
-# <tt style="color:limegreen">JShellOverlayIcon</tt> - Sample code for a blog post
+### JShellOverlayIcon - Sample code for a blog post
 
-<tt style="color:limegreen">JShellOverlayIcon</tt> is sample project - written in C# and Java - for icon overlays under Windows OS.
+JShellOverlayIcon is sample project - written in C# and Java - for icon overlays under Windows OS.
 
-### Requirement
+##### Hints
 
 It is strongly suggested to open the projects with Visual Studio Community Edition 2017 and IntelliJ IDEA 2017. These sample projects are for Windows OS, thus they will not work on non-Windows environments.
 
-### More to read
+##### More to read
 
-https://tornaiandras.com/tag/shell-overlay-icon/
+https://andrastornai.com/tag/shell-overlay-icon/
