@@ -4,7 +4,7 @@ JShellOverlayIcon is sample project - written in C# and Java - for icon overlays
 
 ##### Hints
 
-It is strongly suggested to open the projects with Visual Studio Community Edition 2017 and IntelliJ IDEA 2017. These sample projects are for Windows OS, thus they will not work on non-Windows environments.
+It is strongly recommended to open the projects with Visual Studio Community Edition 2017 and IntelliJ IDEA 2017. These sample projects are for Windows OS, thus they will not work on non-Windows environments.
 
 ##### More to read
 
